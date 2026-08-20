@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import fnmatch
-import json
 import re
 import sys
 from datetime import datetime
@@ -71,15 +70,18 @@ def validate_handoff(document: dict, manifest: dict) -> list[str]:
         errors.append("handoff.to_agent is not in the manifest")
     if from_name == to_name and isinstance(from_name, str):
         errors.append("handoff may not delegate to the same agent")
-    if to_agent is not None and to_agent.get("fresh_context") == "required" and document.get("fresh_context") is not True:
-        errors.append(f"handoff to {to_name} requires fresh_context true")
+    fresh_required = any(
+        agent is not None and agent.get("fresh_context") == "required"
+        for agent in (from_agent, to_agent)
+    )
+    if fresh_required and document.get("fresh_context") is not True:
+        errors.append("handoff involving a fresh-context-required agent requires fresh_context true")
 
-    inputs = string_array(document.get("inputs"), "handoff.inputs", errors, nonempty=True)
-    expected = string_array(document.get("outputs_expected"), "handoff.outputs_expected", errors, nonempty=True)
+    string_array(document.get("inputs"), "handoff.inputs", errors, nonempty=True)
+    string_array(document.get("outputs_expected"), "handoff.outputs_expected", errors, nonempty=True)
     string_array(document.get("constraints"), "handoff.constraints", errors, nonempty=False)
     blockers = string_array(document.get("blockers"), "handoff.blockers", errors, nonempty=False)
     outputs = string_array(document.get("output_artifacts"), "handoff.output_artifacts", errors, nonempty=False)
-    _ = inputs, expected
 
     status = document.get("status")
     if from_agent is not None:
@@ -88,8 +90,9 @@ def validate_handoff(document: dict, manifest: dict) -> list[str]:
             errors.append(f"handoff.status {status!r} is not allowed for {from_name}")
         declared = from_agent.get("writes", [])
         if isinstance(declared, list):
+            patterns = [value for value in declared if isinstance(value, str)]
             for artifact in outputs:
-                if not declared_output(artifact, [value for value in declared if isinstance(value, str)]):
+                if not declared_output(artifact, patterns):
                     errors.append(f"{from_name} may not hand off undeclared output artifact: {artifact}")
 
     if status in {"COMPLETE", "READY", "PACKAGE_READY"} and blockers:

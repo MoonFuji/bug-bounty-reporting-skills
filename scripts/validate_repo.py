@@ -7,6 +7,9 @@ import re
 import sys
 from pathlib import Path
 
+from validate_agents import load_json as load_agent_json
+from validate_agents import validate_manifest
+
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = (
     "write-vulnerability-report",
@@ -75,6 +78,15 @@ def main() -> int:
                 if not isinstance(payload.get("evals"), list) or len(payload["evals"]) < 2:
                     errors.append(f"{eval_file.relative_to(ROOT)}: at least two evals required")
 
+    manifest_path = ROOT / "agents" / "manifest.json"
+    try:
+        manifest = load_agent_json(manifest_path)
+    except ValueError as exc:
+        errors.append(str(exc))
+        manifest = {"agents": []}
+    else:
+        errors.extend(validate_manifest(manifest, ROOT))
+
     for path in ROOT.rglob("*.json"):
         try:
             json.loads(path.read_text(encoding="utf-8"))
@@ -82,10 +94,10 @@ def main() -> int:
             errors.append(f"{path.relative_to(ROOT)}: invalid JSON: {exc}")
 
     if errors:
-        for error in errors:
+        for error in dict.fromkeys(errors):
             print(f"ERROR: {error}", file=sys.stderr)
         return 1
-    print(f"REPOSITORY READY: {len(SKILLS)} skills validated")
+    print(f"REPOSITORY READY: {len(SKILLS)} skills and {len(manifest['agents'])} agents validated")
     return 0
 
 

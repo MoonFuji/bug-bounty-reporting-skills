@@ -1,4 +1,4 @@
-name: Validate skills
+name: Validate skills and agents
 
 on:
   push:
@@ -20,6 +20,14 @@ jobs:
         run: python -m compileall -q .
       - name: Validate repository structure
         run: python scripts/validate_repo.py
+      - name: Validate portable agents
+        run: python scripts/validate_agents.py
+      - name: Test agent manifest and export
+        run: python scripts/test_validate_agents.py
+      - name: Test agent handoffs
+        run: python scripts/test_validate_agent_handoff.py
+      - name: Smoke-test portable export
+        run: python scripts/export_agent_bundle.py --format json --output /tmp/reporting-agents.json
       - name: Test report validator
         run: python write-vulnerability-report/scripts/test_validate_report.py
       - name: Test review validator

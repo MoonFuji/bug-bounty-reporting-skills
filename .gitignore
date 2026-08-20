@@ -6,3 +6,7 @@ __pycache__/
 *-workspace/
 reports/private/
 artifacts/private/
+build/
+handoffs/
+pipeline-state.json
+package-audit.json
