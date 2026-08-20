@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "handoff_id": "",
+  "pipeline_id": "",
+  "from_agent": "",
+  "to_agent": "",
+  "created_at": "",
+  "fresh_context": false,
+  "task": "",
+  "claim_snapshot": {
+    "report_sha256": "",
+    "manifest_sha256": "",
+    "attacker_model": "",
+    "demonstrated_impact": ""
+  },
+  "inputs": [],
+  "outputs_expected": [],
+  "constraints": [],
+  "status": "PROVISIONAL",
+  "blockers": [],
+  "output_artifacts": [],
+  "next_action": ""
+}

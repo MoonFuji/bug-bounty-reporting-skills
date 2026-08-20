@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "pipeline_id": "",
+  "status": "ACTIVE",
+  "user_goal": "",
+  "workspace": "",
+  "canonical_claim": {
+    "attacker_model": "",
+    "demonstrated_impact": "",
+    "report_sha256": "",
+    "review_verdict": "",
+    "package_status": ""
+  },
+  "current_agent": "reporting-orchestrator",
+  "completed_agents": [],
+  "active_handoffs": [],
+  "blocked_handoffs": [],
+  "artifacts": {},
+  "remaining_work": [],
+  "history": []
+}

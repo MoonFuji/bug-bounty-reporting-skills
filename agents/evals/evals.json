@@ -1,0 +1,20 @@
+{
+  "agent_collection": "portable-reporting-agents",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run the reporting pipeline on a finalized cross-tenant evidence bundle and prepare a HackerOne submission. The final reviewer must be fresh-context and the platform policy is supplied.",
+      "expected_output": "The orchestrator delegates evidence curation, canonical writing, selective hardening specialists, independent READY review, platform adaptation, and package audit with persisted handoffs and no self-certification."
+    },
+    {
+      "id": 2,
+      "prompt": "The draft claims Critical RCE, but the proof only shows a same-user write to a writable temp directory. Produce the reporting-agent workflow outcome.",
+      "expected_output": "Evidence curation and severity/proof specialists block the inflated claim; no writer or adapter produces a submission-ready Critical report."
+    },
+    {
+      "id": 3,
+      "prompt": "Adapt a READY upstream-library report to a bug-bounty platform, but the current program policy cannot be retrieved.",
+      "expected_output": "The adapter returns PROVISIONAL, preserves the canonical claim and limitations, and the package auditor refuses PACKAGE_READY until live policy is available."
+    }
+  ]
+}
