@@ -1,0 +1,8 @@
+interface:
+  display_name: "Security Evidence Coach"
+  short_description: "Learn security judgment from evidence and contrastive cases"
+  default_prompt: >-
+    Use $security-evidence-coach to assess the supplied security claim or teach
+    the missing distinction. Separate observations, inferences, and unknowns;
+    cite the supplied evidence; do not invent tests or treat practice as
+    certification. Use controlled examples, not live target probing.
