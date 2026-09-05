@@ -38,13 +38,15 @@ The canonical report is the source of truth. Platform adaptation may reorder, sh
 
 [`security-evidence-coach/SKILL.md`](security-evidence-coach/SKILL.md) is a separate teaching and defensive-review aid, not an extra mandatory pipeline gate or an autonomous hunting workflow. Its short core routes a model to deeper explanations only when relevant.
 
-It includes twelve worked contrastive families, 24 fictional evidence packets, six qualitative evaluation prompts, an evaluator-only answer key, an offline exporter/scorer, and two executable defensive specification models. It distinguishes observed facts, inferences, and unknowns; authentication from authorization; missing observations from valid negative results; and technical impact from program treatment.
+It includes twenty worked lesson families, 48 fictional evidence packets across foundation and advanced tracks, twelve qualitative evaluation prompts, six staged revision drills, separate evaluator answer keys, and an offline exporter/scorer with family diagnostics. Two defensive specification models and an evidence-arithmetic model make bounded concepts executable. It distinguishes observed facts, inferences, and unknowns; authentication from authorization; missing observations from valid negative results; and technical impact from program treatment.
 
 ```text
 Use $security-evidence-coach to assess this supplied security claim.
 Cite the decisive artifacts, explain the strongest alternative,
 and separate blocking unknowns from ordinary limitations.
 ```
+
+The [advanced lessons](security-evidence-coach/references/advanced-worked-lessons.md) connect source bindings, policy composition, revocation order, committed effects, stratified measurements, provenance, remediation evidence, and relational observations. They remain optional reading rather than mandatory reporting forms.
 
 From the repository root:
 
@@ -53,6 +55,10 @@ python security-evidence-coach/scripts/practice.py validate
 python security-evidence-coach/scripts/practice.py export --output /tmp/security-practice-inputs
 python security-evidence-coach/scripts/test_practice.py
 python security-evidence-coach/labs/test_models.py
+python security-evidence-coach/scripts/practice.py validate --suite advanced
+python security-evidence-coach/scripts/practice.py export --suite advanced --output /tmp/security-advanced-inputs
+python security-evidence-coach/scripts/test_advanced.py
+python security-evidence-coach/labs/test_evidence_math.py
 ```
 
 Give assessed agents only the export and the chosen instruction condition, not the answer key. The public cases are teaching material, not a private capability benchmark. The scorer does not invoke models or grade the truth of prose; human rationale review is required. No measured improvement on any model is claimed. See the [evaluation protocol](security-evidence-coach/evals/README.md).

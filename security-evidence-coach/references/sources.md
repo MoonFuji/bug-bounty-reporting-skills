@@ -79,3 +79,15 @@ When a source is actually checked, record the source revision or retrieval date,
 which claim it supports, and any conditions that limit applicability. Do not add a
 "verified" badge merely because a URL exists. Avoid reproducing copyrighted lesson
 content or publishing private program artifacts. Public links can also become stale.
+
+## Advanced extension provenance
+
+The multi-artifact, temporal-authority, measurement, repair, and advanced worked
+lessons were added without live web access. Their numerical examples are invented
+and their arithmetic is derived in the text and checked by offline unit tests.
+These tests do not validate an external statistical study or a real deployment.
+The advanced packets and revision drills are also original fictional material.
+
+The earlier authorization, state, measurement, reporting, and learning links remain
+background pointers only. No link was promoted to verified during this extension,
+and no public vulnerability report or model benchmark result was imported.

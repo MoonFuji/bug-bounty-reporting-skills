@@ -91,6 +91,10 @@ Use only the reference that resolves the current uncertainty:
 | Competing explanations, missing evidence, appropriate stopping | [Evidence and uncertainty](references/evidence-and-uncertainty.md) |
 | Impact, scope, ownership, duplicates, report consistency | [Claim discipline](references/claim-discipline.md) |
 | Coaching, transfer, context recovery, model comparisons | [Teaching and evaluation](references/teaching-and-evaluation.md) |
+| Binding source, configuration, policy, and outcome | [Multi-artifact reasoning](references/multi-artifact-reasoning.md) |
+| Revocation, object generations, policy epochs, committed effects | [Temporal authority](references/temporal-authority.md) |
+| Zero observations, base rates, dependent data, misleading averages | [Measurement and calibration](references/measurement-calibration.md) |
+| Patch evidence, independent test oracles, relational properties | [Repair and transfer](references/repair-and-transfer.md) |
 
 ### 4. Compare explanations, not rhetorical strength
 
@@ -143,6 +147,11 @@ comparison; state transitions; representation identity; deployment relevance;
 execution boundaries; duplicate evidence; severity; asynchronous acceptance; and
 sampled coverage. Examples are original and fictional, not real bounty reports.
 
+[Advanced worked lessons](references/advanced-worked-lessons.md) add eight
+multi-artifact families. Use [revision drills](evals/revision-drills.md) to practice
+changing a conclusion only when a relevant premise or the question changes.
+These lessons disclose teaching answers; do not call later practice held-out.
+
 Teach a distinction, attempt an unlabelled packet, compare with the answer key,
 and explain the decisive difference. Gradually remove hints rather than imposing
 more forms. Never reward invented evidence, a lucky label, or blanket abstention.
@@ -150,11 +159,14 @@ more forms. Never reward invented evidence, a lucky label, or blanket abstention
 ## Optional executable teaching models
 
 The [defensive models](labs/README.md) illustrate permission relations and a pure
-sequential adjustment specification. They contain no vulnerable counterpart or
-network code. Their tests demonstrate bounded contracts, not production security.
+sequential adjustment specification. The additional evidence-math model derives
+synthetic probability bounds and weighted rates under explicit assumptions. There
+is no vulnerable counterpart or network code. Tests of these models establish
+bounded mathematical contracts, not production security or model expertise.
 
 ```bash
 python labs/test_models.py
+python labs/test_evidence_math.py
 ```
 
 ## Practice tools
@@ -166,11 +178,17 @@ python scripts/practice.py validate
 python scripts/practice.py export --output /tmp/security-practice-inputs
 python scripts/practice.py score --answers /path/to/answers.json
 python scripts/test_practice.py
+python scripts/practice.py validate --suite advanced
+python scripts/practice.py export --suite advanced --output /tmp/security-advanced-inputs
+python scripts/test_advanced.py
 ```
 
 Export creates a new directory with case inputs and a blank answer template,
 without answer labels or rationales. Give the assessed model only that export
 plus the chosen instruction condition. The grader retains the answer key.
+
+The unchanged foundation track and the separate [advanced track](evals/advanced/README.md)
+each contain 24 cases. Use `score --suite advanced` for an advanced answer file.
 
 Read [the evaluation protocol](evals/README.md) before comparing models. Automated
 metrics test labels and cited-evidence coverage, not semantic correctness of the

@@ -104,3 +104,16 @@ without inventing work from the missing context.
 
 This supports continuity; it is not an instruction to run indefinitely or continue
 an offensive workflow. A well-justified stop is sometimes the correct outcome.
+
+## Extending depth without extending every prompt
+
+The [advanced lessons](advanced-worked-lessons.md) require connecting several supplied
+artifacts rather than recognizing one keyword. Load one guide for the demonstrated
+misunderstanding; do not require every learner to read every guide. The separate
+[advanced practice track](../evals/advanced/README.md) leaves foundational cases stable
+so existing practice results keep their meaning. Neither track is a private holdout.
+
+Use [revision drills](../evals/revision-drills.md) to assess premise-sensitive updating,
+not just one-shot classifications. Save answers before each new tranche and label
+post-feedback work as training. Some new facts should change the verdict; irrelevant
+facts should not. Appropriate invariance is as important as appropriate revision.

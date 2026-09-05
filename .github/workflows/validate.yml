@@ -34,3 +34,9 @@ jobs:
         run: python security-evidence-coach/scripts/test_practice.py
       - name: Test defensive teaching models
         run: python security-evidence-coach/labs/test_models.py
+      - name: Validate advanced coaching package
+        run: python security-evidence-coach/scripts/practice.py validate --suite advanced
+      - name: Test advanced offline practice
+        run: python security-evidence-coach/scripts/test_advanced.py
+      - name: Test evidence arithmetic
+        run: python security-evidence-coach/labs/test_evidence_math.py
