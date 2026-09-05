@@ -28,3 +28,9 @@ jobs:
         run: python harden-vulnerability-report/scripts/test_validate_hardening.py
       - name: Test adaptation validator
         run: python adapt-vulnerability-report/scripts/test_validate_adaptation.py
+      - name: Validate security coaching package
+        run: python security-evidence-coach/scripts/practice.py validate
+      - name: Test offline practice tools
+        run: python security-evidence-coach/scripts/test_practice.py
+      - name: Test defensive teaching models
+        run: python security-evidence-coach/labs/test_models.py

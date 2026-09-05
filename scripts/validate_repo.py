@@ -13,6 +13,7 @@ SKILLS = (
     "harden-vulnerability-report",
     "review-vulnerability-report",
     "adapt-vulnerability-report",
+    "security-evidence-coach",
 )
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 

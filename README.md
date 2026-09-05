@@ -2,7 +2,7 @@
 
 A portable Agent Skills collection for turning validated vulnerability evidence into clear, reproducible, triager-ready disclosures.
 
-This repository deliberately starts **after discovery**. It does not decide whether a suspicious behavior is a vulnerability and it does not lower proof, scope, ownership, or novelty gates. Give it a finalized evidence bundle or a validated candidate from an upstream hunting workflow.
+The reporting pipeline deliberately starts **after discovery**. It does not decide whether a suspicious behavior is a vulnerability and it does not lower proof, scope, ownership, or novelty gates. Give it a finalized evidence bundle or a validated candidate from an upstream hunting workflow. The optional Security Evidence Coach teaches assessment judgment separately; a practice result is not validated reporting input.
 
 ## Included skills
 
@@ -12,6 +12,7 @@ This repository deliberately starts **after discovery**. It does not decide whet
 | [`harden-vulnerability-report`](harden-vulnerability-report/) | Improve radius analysis, reproduction reliability, severity accuracy, and remediation while preserving the evidence boundary. |
 | [`review-vulnerability-report`](review-vulnerability-report/) | Run a fresh-context, triager-minded final review and issue `READY`, `BLOCKED`, or `PROVISIONAL`. |
 | [`adapt-vulnerability-report`](adapt-vulnerability-report/) | Adapt a canonical final report to a live platform or upstream disclosure contract without changing its claims. |
+| [`security-evidence-coach`](security-evidence-coach/) | Teach evidence-based security judgment with contrastive lessons, fictional practice packets, and defensive specification models; never certify expertise or report readiness. |
 
 ## Recommended pipeline
 
@@ -32,6 +33,31 @@ validated candidate / evidence bundle
 ```
 
 The canonical report is the source of truth. Platform adaptation may reorder, shorten, or split fields, but it must not add impact, broaden scope, change severity, or omit load-bearing limitations.
+
+## Optional learning companion
+
+[`security-evidence-coach/SKILL.md`](security-evidence-coach/SKILL.md) is a separate teaching and defensive-review aid, not an extra mandatory pipeline gate or an autonomous hunting workflow. Its short core routes a model to deeper explanations only when relevant.
+
+It includes twelve worked contrastive families, 24 fictional evidence packets, six qualitative evaluation prompts, an evaluator-only answer key, an offline exporter/scorer, and two executable defensive specification models. It distinguishes observed facts, inferences, and unknowns; authentication from authorization; missing observations from valid negative results; and technical impact from program treatment.
+
+```text
+Use $security-evidence-coach to assess this supplied security claim.
+Cite the decisive artifacts, explain the strongest alternative,
+and separate blocking unknowns from ordinary limitations.
+```
+
+From the repository root:
+
+```bash
+python security-evidence-coach/scripts/practice.py validate
+python security-evidence-coach/scripts/practice.py export --output /tmp/security-practice-inputs
+python security-evidence-coach/scripts/test_practice.py
+python security-evidence-coach/labs/test_models.py
+```
+
+Give assessed agents only the export and the chosen instruction condition, not the answer key. The public cases are teaching material, not a private capability benchmark. The scorer does not invoke models or grade the truth of prose; human rationale review is required. No measured improvement on any model is claimed. See the [evaluation protocol](security-evidence-coach/evals/README.md).
+
+Live web research was unavailable when this companion was authored. Its [source register](security-evidence-coach/references/sources.md) labels external reading links as unverified; examples are original and synthetic, not copied bounty reports.
 
 ## Installation
 
