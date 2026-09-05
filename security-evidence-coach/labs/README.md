@@ -48,3 +48,18 @@ concurrent atomicity. Identify the observation and specification used by each te
 
 Do not create an exploit version to make the exercise more exciting. The point is
 to learn what a defensive argument establishes and where its premises stop.
+
+## Evidence arithmetic model
+
+[evidence_math.py](evidence_math.py) implements three small mathematical helpers:
+a zero-event binomial upper bound, a Bayes posterior from explicitly supplied rates,
+and a pooled observed rate from count pairs. It is not a measurement collector,
+statistical analysis package, or security-confidence estimator. It never reads
+network data or chooses priors for a real finding.
+
+Run `python labs/test_evidence_math.py`. Tests use independently calculated small
+examples, inverse identities, extreme values, and invalid inputs. Read
+[measurement and calibration](../references/measurement-calibration.md) before
+interpreting a result. The helpers cannot check independence, sampling design,
+complete detection, or external applicability. Their output does not certify a
+security proposition or show that any model learned the lesson.

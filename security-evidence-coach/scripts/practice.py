@@ -13,6 +13,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 VERDICTS = ("SUPPORTED", "CONTRADICTED", "INCONCLUSIVE")
+SUITES = {"foundation": "evals", "advanced": "evals/advanced"}
 ID_RE = re.compile(r"^[A-Za-z][A-Za-z0-9_-]{0,63}$")
 
 
@@ -132,15 +133,18 @@ def validate_data(suite: dict[str, Any], key: dict[str, Any]) -> None:
         raise ValueError("answer key must cover every case exactly once")
 
 
-def load_suite(root: Path = ROOT) -> tuple[dict[str, Any], dict[str, Any]]:
-    suite = load_json(root / "evals" / "cases.json")
-    key = load_json(root / "evals" / "answer-key.json")
+def load_suite(root: Path = ROOT, *, suite_name: str = "foundation") -> tuple[dict[str, Any], dict[str, Any]]:
+    if not isinstance(suite_name, str) or suite_name not in SUITES:
+        raise ValueError("suite_name must be foundation or advanced")
+    directory = root / SUITES[suite_name]
+    suite = load_json(directory / "cases.json")
+    key = load_json(directory / "answer-key.json")
     validate_data(suite, key)
     return suite, key
 
 
-def validate_package(root: Path = ROOT) -> dict[str, Any]:
-    suite, key = load_suite(root)
+def validate_package(root: Path = ROOT, *, suite_name: str = "foundation") -> dict[str, Any]:
+    suite, key = load_suite(root, suite_name=suite_name)
     evals = load_json(root / "evals" / "evals.json")
     if evals.get("skill_name") != "security-evidence-coach":
         raise ValueError("evals.skill_name mismatch")
@@ -167,8 +171,9 @@ def _write_json(path: Path, value: dict[str, Any]) -> None:
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def export_packets(output: Path, root: Path = ROOT) -> dict[str, Any]:
-    suite, _ = load_suite(root)  # Validate before any output mutation.
+def export_packets(output: Path, root: Path = ROOT, *,
+                   suite_name: str = "foundation") -> dict[str, Any]:
+    suite, _ = load_suite(root, suite_name=suite_name)  # Validate before any output mutation.
     if output.exists() or output.is_symlink():
         raise ValueError(f"refusing to overwrite output: {output}")
     if not output.parent.is_dir():
@@ -257,8 +262,20 @@ def score_answers(answers: dict[str, Any], suite: dict[str, Any],
     for v in VERDICTS:
         predicted = sum(confusion[e][v] for e in VERDICTS)
         precision[v] = confusion[v][v] / predicted if predicted else None
+    # Evaluator-only diagnostic groups. These are related, small public packets,
+    # not independent samples of general ability on an architectural family.
+    family_summary = {}
+    for family in sorted({row["family"] for row in key["cases"]}):
+        group = [d for d in details if key_map[d["case_id"]]["family"] == family]
+        family_summary[family] = {
+            "cases": len(group),
+            "label_accuracy": sum(d["label_correct"] for d in group) / len(group),
+            "decisive_evidence_id_coverage": sum(
+                d["decisive_evidence_ids_covered"] for d in group) / len(group),
+        }
     return {
         "suite_id": suite["suite_id"], "run": run, "cases_scored": n,
+        "family_summary": family_summary,
         "label_accuracy": sum(d["label_correct"] for d in details) / n,
         "macro_recall": sum(recall.values()) / len(recall),
         "recall_by_verdict": recall, "precision_by_verdict": precision,
@@ -278,19 +295,22 @@ def score_answers(answers: dict[str, Any], suite: dict[str, Any],
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
-    sub.add_parser("validate", help="validate the public teaching package")
+    validate = sub.add_parser("validate", help="validate the selected public teaching suite")
     export = sub.add_parser("export", help="create learner inputs without answer labels")
     export.add_argument("--output", type=Path, required=True)
     score = sub.add_parser("score", help="score submitted practice answers; does not invoke a model")
     score.add_argument("--answers", type=Path, required=True)
+    for command in (validate, export, score):
+        command.add_argument("--suite", choices=tuple(SUITES), default="foundation",
+                             help="public practice track (default: foundation)")
     args = parser.parse_args(argv)
     try:
         if args.command == "validate":
-            result = validate_package()
+            result = validate_package(suite_name=args.suite)
         elif args.command == "export":
-            result = export_packets(args.output)
+            result = export_packets(args.output, suite_name=args.suite)
         else:
-            suite, key = load_suite()
+            suite, key = load_suite(suite_name=args.suite)
             result = score_answers(load_json(args.answers), suite, key)
     except (OSError, ValueError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)

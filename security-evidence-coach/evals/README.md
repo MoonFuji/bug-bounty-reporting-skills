@@ -8,11 +8,16 @@ The outcome describes the proposition, not necessarily a vulnerability.
 
 `cases.json` contains learner inputs. `answer-key.json` is evaluator material with
 expected labels, decisive evidence IDs, rationales, and critical mistakes.
-`evals.json` contains six broader coaching prompts for qualitative assessment.
+`evals.json` contains twelve broader coaching prompts for qualitative assessment.
 
 The suite has public answers. It is a diagnostic teaching set, **not a private
 holdout**, a discovery benchmark, or proof of expert-level cybersecurity ability.
 No model runs or measured improvements are included in this repository change.
+
+The separate [advanced track](advanced/README.md) adds 24 multi-artifact packets in
+eight new families. Existing commands default to this unchanged foundation suite;
+select the other track with `--suite advanced`. Public [revision drills](revision-drills.md)
+provide six staged, instructor-led exercises outside automated scoring.
 
 ## Run from the skill directory
 
@@ -62,6 +67,8 @@ incomplete run, not reported as a smaller successful denominator.
 
 ## Interpret the machine metrics
 
+- **Family breakdown:** label accuracy and evidence-ID coverage by evaluator-known
+  family. Small, related groups are diagnostic descriptions, not independent estimates.
 - **Label accuracy:** correct expected classifications across all 24 packets.
 - **Macro recall and confusion matrix:** expose always-supported, always-rejected,
   and always-inconclusive behavior. Blanket inconclusive answers score one third
