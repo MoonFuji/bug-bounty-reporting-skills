@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "suite_id": "architecture-projects-v1",
+  "projects": {
+    "P101": {
+      "responsibilities": [
+        "session principal",
+        "object/action grants",
+        "approved projection",
+        "active adapter binding"
+      ],
+      "questions": [
+        "What relation authorizes each operation?",
+        "Which implementation do the public operations select?",
+        "Which fields reach the public result?"
+      ],
+      "relationships": [
+        {
+          "files": [
+            "product.md",
+            "permissions.py",
+            "records.json"
+          ],
+          "conclusion": "The explicit READ and EXPORT share authorizes the cross-workspace reader in this finite fixture."
+        },
+        {
+          "files": [
+            "assembly.json",
+            "views.py",
+            "permissions.py"
+          ],
+          "conclusion": "Both scoped operations call the selected permission function."
+        },
+        {
+          "files": [
+            "product.md",
+            "views.py",
+            "records.json"
+          ],
+          "conclusion": "The supplied projection omits internal_note."
+        }
+      ],
+      "overclaims": [
+        "All cross-workspace access is unauthorized.",
+        "An anonymous denial alone proves object authorization.",
+        "All future routes are safe."
+      ]
+    },
+    "P202": {
+      "responsibilities": [
+        "scoped logical identity",
+        "attempt acceptance",
+        "committed effect journal"
+      ],
+      "questions": [
+        "What denotes the same logical adjustment?",
+        "Which artifact establishes committed effects rather than attempts?",
+        "Does the finite effect history satisfy the product promise?"
+      ],
+      "relationships": [
+        {
+          "files": [
+            "product.md",
+            "identity.py",
+            "journal.json"
+          ],
+          "conclusion": "Two distinct red/J7 committed effects contradict the at-most-one promise in W4."
+        },
+        {
+          "files": [
+            "product.md",
+            "receipts.py",
+            "assembly.json"
+          ],
+          "conclusion": "Accepted receipts do not establish commitment."
+        },
+        {
+          "files": [
+            "identity.py",
+            "journal.json"
+          ],
+          "conclusion": "The blue/J7 effect is a separate scoped operation."
+        }
+      ],
+      "overclaims": [
+        "Two attempts alone prove two effects.",
+        "A specific race or SQL bug caused the inconsistency.",
+        "Equal operation_id across workspaces means the same logical operation."
+      ]
+    },
+    "P303": {
+      "responsibilities": [
+        "verified statement",
+        "signer role",
+        "audience-specific approval",
+        "deployment selection",
+        "installed identity"
+      ],
+      "questions": [
+        "Which policy governed the retained promotion?",
+        "What does the build statement establish separately from release authority?",
+        "Which artifact would establish installation?"
+      ],
+      "relationships": [
+        {
+          "files": [
+            "product.md",
+            "policies.json",
+            "approval.py"
+          ],
+          "conclusion": "Production and staging have different approval requirements."
+        },
+        {
+          "files": [
+            "product.md",
+            "release-record.json"
+          ],
+          "conclusion": "The verified staging build does not settle production compliance or installed state."
+        }
+      ],
+      "overclaims": [
+        "A valid signature establishes release authority.",
+        "The production policy definitely was active.",
+        "Missing approval evidence proves approval was absent."
+      ]
+    },
+    "P404": {
+      "responsibilities": [
+        "UTF-8 snapshot",
+        "byte length",
+        "native retention contract",
+        "platform adapter selection",
+        "public metadata"
+      ],
+      "questions": [
+        "Which unit and buffer does the native interface require?",
+        "Which platforms does the supplied adapter cover?",
+        "What data does the public projection include?"
+      ],
+      "relationships": [
+        {
+          "files": [
+            "product.md",
+            "encoding.py",
+            "checks.json"
+          ],
+          "conclusion": "The supplied desktop encoder derives byte length from the immutable UTF-8 snapshot."
+        },
+        {
+          "files": [
+            "assembly.json",
+            "checks.json",
+            "product.md"
+          ],
+          "conclusion": "Mobile adapter compliance is unresolved, not established by desktop checks."
+        },
+        {
+          "files": [
+            "product.md",
+            "view.py",
+            "checks.json"
+          ],
+          "conclusion": "The finite public metadata projection omits document text."
+        }
+      ],
+      "overclaims": [
+        "Sequential Python tests prove native memory safety.",
+        "A missing adapter proves memory corruption.",
+        "Desktop correctness covers mobile."
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "revision": "beacon-12",
+  "artifact_digest": "fictional-digest-D",
+  "signed_statement": {
+    "signature_verified": true,
+    "signer": "builder-1",
+    "digest": "fictional-digest-D",
+    "audience": "staging"
+  },
+  "retained_event": {
+    "operation": "package-promote",
+    "artifact_digest": "fictional-digest-D",
+    "status": "accepted"
+  },
+  "unretained_artifacts": [
+    "selected deployment policy",
+    "release approval ledger",
+    "installed-artifact record"
+  ],
+  "provenance": "Original fictional packet. Digest strings are symbolic identities, not real hashes."
+}

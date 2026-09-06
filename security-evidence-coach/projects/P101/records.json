@@ -1,0 +1,53 @@
+{
+  "records": [
+    {
+      "record_id": "D1",
+      "workspace": "north",
+      "owner": "owner",
+      "title": "Quarterly summary",
+      "internal_note": "Fictional private annotation"
+    }
+  ],
+  "principals": [
+    {
+      "user_id": "owner",
+      "workspace": "north"
+    },
+    {
+      "user_id": "reader",
+      "workspace": "south"
+    },
+    {
+      "user_id": "visitor",
+      "workspace": "south"
+    }
+  ],
+  "grants": [
+    {
+      "user_id": "reader",
+      "record_id": "D1",
+      "actions": [
+        "READ",
+        "EXPORT"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "user_id": "reader",
+      "action": "EXPORT",
+      "record_id": "D1",
+      "outcome": {
+        "record_id": "D1",
+        "title": "Quarterly summary"
+      }
+    },
+    {
+      "user_id": "visitor",
+      "action": "READ",
+      "record_id": "D1",
+      "outcome": "denied"
+    }
+  ],
+  "provenance": "Original synthetic records, correlated to atlas-17 and the supplied assembly. No omitted grant in this finite fixture."
+}

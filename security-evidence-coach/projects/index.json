@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "suite_id": "architecture-projects-v1",
+  "projects": [
+    {
+      "id": "P101",
+      "directory": "P101"
+    },
+    {
+      "id": "P202",
+      "directory": "P202"
+    },
+    {
+      "id": "P303",
+      "directory": "P303"
+    },
+    {
+      "id": "P404",
+      "directory": "P404"
+    }
+  ]
+}

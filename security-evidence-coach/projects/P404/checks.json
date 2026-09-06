@@ -1,0 +1,28 @@
+{
+  "revision": "cedar-5",
+  "desktop_observations": [
+    {
+      "input": "Plain",
+      "bytes_hex": "506c61696e",
+      "length_bytes": 5
+    },
+    {
+      "input": "R\u00e9sum\u00e9",
+      "bytes_hex": "52c3a973756dc3a9",
+      "length_bytes": 8
+    }
+  ],
+  "mobile_checks": "not run; adapter unavailable",
+  "metadata_observation": {
+    "input_fields": [
+      "document_id",
+      "title",
+      "text"
+    ],
+    "output_fields": [
+      "document_id",
+      "title"
+    ]
+  },
+  "provenance": "Original synthetic records. Sequential desktop observations do not cover the missing mobile adapter."
+}

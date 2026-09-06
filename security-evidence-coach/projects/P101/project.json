@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "project_id": "P101",
+  "title": "Atlas workspace",
+  "files": [
+    "assembly.json",
+    "permissions.py",
+    "product.md",
+    "records.json",
+    "views.py"
+  ]
+}

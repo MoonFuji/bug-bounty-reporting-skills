@@ -1,0 +1,18 @@
+{
+  "staging": {
+    "audience": "staging",
+    "required_role": "build"
+  },
+  "production": {
+    "audience": "production",
+    "required_role": "release"
+  },
+  "roles": {
+    "builder-1": [
+      "build"
+    ],
+    "approver-1": [
+      "release"
+    ]
+  }
+}

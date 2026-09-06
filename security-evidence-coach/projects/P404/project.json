@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "project_id": "P404",
+  "title": "Cedar SDK",
+  "files": [
+    "assembly.json",
+    "checks.json",
+    "encoding.py",
+    "product.md",
+    "view.py"
+  ]
+}

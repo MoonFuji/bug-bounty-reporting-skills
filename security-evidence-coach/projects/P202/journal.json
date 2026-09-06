@@ -1,0 +1,47 @@
+{
+  "revision": "delta-8",
+  "window": "W4",
+  "completeness": "Complete for committed adjustments and compensation within W4.",
+  "attempts": [
+    {
+      "attempt_id": "A1",
+      "workspace_id": "red",
+      "operation_id": "J7",
+      "status": "accepted"
+    },
+    {
+      "attempt_id": "A2",
+      "workspace_id": "red",
+      "operation_id": "J7",
+      "status": "accepted"
+    },
+    {
+      "attempt_id": "A3",
+      "workspace_id": "blue",
+      "operation_id": "J7",
+      "status": "accepted"
+    }
+  ],
+  "committed_effects": [
+    {
+      "effect_id": "E1",
+      "workspace_id": "red",
+      "operation_id": "J7",
+      "amount": 10
+    },
+    {
+      "effect_id": "E2",
+      "workspace_id": "red",
+      "operation_id": "J7",
+      "amount": 10
+    },
+    {
+      "effect_id": "E3",
+      "workspace_id": "blue",
+      "operation_id": "J7",
+      "amount": 10
+    }
+  ],
+  "compensations": [],
+  "provenance": "Original synthetic journal. Effect IDs identify distinct committed rows, not duplicate log renderings."
+}

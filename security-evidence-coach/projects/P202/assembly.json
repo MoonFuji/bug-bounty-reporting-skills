@@ -1,0 +1,9 @@
+{
+  "revision": "delta-8",
+  "acceptance_view": "receipts.py:receipt",
+  "logical_identity": "identity.py:logical_identity",
+  "authoritative_effect_record": "journal.json:committed_effects",
+  "journal_window": "W4",
+  "completion_view": "Commitment is established by the journal, never by receipt status.",
+  "store_implementation": "Not included; the finite journal is supplied evidence, not an executable store."
+}

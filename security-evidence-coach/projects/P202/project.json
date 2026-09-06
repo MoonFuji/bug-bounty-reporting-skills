@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "project_id": "P202",
+  "title": "Delta adjustments",
+  "files": [
+    "assembly.json",
+    "identity.py",
+    "journal.json",
+    "product.md",
+    "receipts.py"
+  ]
+}
