@@ -2,7 +2,7 @@
 
 A portable Agent Skills collection for turning validated vulnerability evidence into clear, reproducible, triager-ready disclosures.
 
-The reporting pipeline deliberately starts **after discovery**. It does not decide whether a suspicious behavior is a vulnerability and it does not lower proof, scope, ownership, or novelty gates. Give it a finalized evidence bundle or a validated candidate from an upstream hunting workflow. The optional Security Evidence Coach teaches assessment judgment separately; a practice result is not validated reporting input.
+The reporting pipeline deliberately starts **after discovery**. It does not decide whether a suspicious behavior is a vulnerability and it does not lower proof, scope, ownership, or novelty gates. Give it a finalized evidence bundle or a validated candidate from an upstream hunting workflow. The optional Security Evidence Coach supports architecture-first assessment before a suspected bug exists, as well as evidence judgment; neither a practice result nor an assessment note is validated reporting input.
 
 ## Included skills
 
@@ -12,9 +12,9 @@ The reporting pipeline deliberately starts **after discovery**. It does not deci
 | [`harden-vulnerability-report`](harden-vulnerability-report/) | Improve radius analysis, reproduction reliability, severity accuracy, and remediation while preserving the evidence boundary. |
 | [`review-vulnerability-report`](review-vulnerability-report/) | Run a fresh-context, triager-minded final review and issue `READY`, `BLOCKED`, or `PROVISIONAL`. |
 | [`adapt-vulnerability-report`](adapt-vulnerability-report/) | Adapt a canonical final report to a live platform or upstream disclosure contract without changing its claims. |
-| [`security-evidence-coach`](security-evidence-coach/) | Teach evidence-based security judgment with contrastive lessons, fictional practice packets, and defensive specification models; never certify expertise or report readiness. |
+| [`security-evidence-coach`](security-evidence-coach/) | Investigate designated software from its architecture, derive relevant assessment questions, explain security mechanisms, and review evidence without certifying expertise or report readiness. |
 
-## Recommended pipeline
+## Recommended reporting pipeline
 
 ```text
 validated candidate / evidence bundle
@@ -34,21 +34,33 @@ validated candidate / evidence bundle
 
 The canonical report is the source of truth. Platform adaptation may reorder, shorten, or split fields, but it must not add impact, broaden scope, change severity, or omit load-bearing limitations.
 
-## Optional learning companion
+## Architecture-first assessment companion
 
-[`security-evidence-coach/SKILL.md`](security-evidence-coach/SKILL.md) is a separate teaching and defensive-review aid, not an extra mandatory pipeline gate or an autonomous hunting workflow. Its short core routes a model to deeper explanations only when relevant.
-
-It includes twenty worked lesson families, 48 fictional evidence packets across foundation and advanced tracks, twelve qualitative evaluation prompts, six staged revision drills, separate evaluator answer keys, and an offline exporter/scorer with family diagnostics. Two defensive specification models and an evidence-arithmetic model make bounded concepts executable. It distinguishes observed facts, inferences, and unknowns; authentication from authorization; missing observations from valid negative results; and technical impact from program treatment.
+[`security-evidence-coach/SKILL.md`](security-evidence-coach/SKILL.md) now starts with **Investigate** when given a designated codebase or system without a suspected bug. It reconstructs security responsibilities, derives material questions from the actual architecture, and connects source, active configuration, contracts, and observations. Explain, Review, and Practice remain available. This is human-directed source/design assessment, not autonomous third-party targeting or exploitation.
 
 ```text
-Use $security-evidence-coach to assess this supplied security claim.
-Cite the decisive artifacts, explain the strongest alternative,
-and separate blocking unknowns from ordinary limitations.
+Use $security-evidence-coach to investigate this designated codebase.
+No suspected vulnerability is supplied. Explain its security responsibilities,
+choose the material questions, cite active bindings and relevant artifacts,
+and distinguish settled facts from unresolved assessment dependencies.
 ```
 
-The [advanced lessons](security-evidence-coach/references/advanced-worked-lessons.md) connect source bindings, policy composition, revocation order, committed effects, stratified measurements, provenance, remediation evidence, and relational observations. They remain optional reading rather than mandatory reporting forms.
+The [architecture-first guide](security-evidence-coach/references/architecture-first-assessment.md) explains how questions arise before a claim exists. Eight [mechanism chapters](security-evidence-coach/references/mechanisms/README.md) cover identity and permission; asynchronous state; signed statements; build and delivery; component contracts; process/resource authority; representation/native interfaces; and device updates. Load only the chapters relevant to the uncertainty. Normal assessment needs no quiz, scoring form, or new mandatory ledger.
 
-From the repository root:
+Four [open-ended multi-file projects](security-evidence-coach/projects/README.md) begin with product behavior, source components, composition, and observations rather than a prewritten hypothesis. They include secure look-alikes, an established finite inconsistency, incomplete evidence, and mixed outcomes. The [human evaluation rubric](security-evidence-coach/evals/projects/README.md) assesses architecture understanding, question selection, grounding, calibration, continuation, and transfer. Instructor material is separate from learner exports.
+
+```bash
+python security-evidence-coach/scripts/assessment_projects.py validate
+python security-evidence-coach/scripts/assessment_projects.py list
+python security-evidence-coach/scripts/assessment_projects.py export --project P101 --output /tmp/coach-project
+python security-evidence-coach/scripts/test_assessment_projects.py
+```
+
+### Existing evidence practice is preserved
+
+The coach retains twenty worked lesson families, 48 fictional evidence packets across foundation and advanced tracks, twelve qualitative evaluation prompts, six staged revision drills, separate evaluator answer keys, and the original exporter/scorer. Two defensive specification models and an evidence-arithmetic model make bounded concepts executable. These train judgments after a question exists; the new project track complements them without changing their suite IDs or packet bytes.
+
+The [advanced lessons](security-evidence-coach/references/advanced-worked-lessons.md) connect source bindings, policy composition, revocation order, committed effects, stratified measurements, provenance, remediation evidence, and relational observations.
 
 ```bash
 python security-evidence-coach/scripts/practice.py validate
@@ -61,13 +73,11 @@ python security-evidence-coach/scripts/test_advanced.py
 python security-evidence-coach/labs/test_evidence_math.py
 ```
 
-Give assessed agents only the export and the chosen instruction condition, not the answer key. The public cases are teaching material, not a private capability benchmark. The scorer does not invoke models or grade the truth of prose; human rationale review is required. No measured improvement on any model is claimed. See the [evaluation protocol](security-evidence-coach/evals/README.md).
+Give assessed agents only the export and the chosen instruction condition, not answer keys or instructor maps. These public projects are teaching material, not a private capability benchmark. The tools do not invoke models, execute project text, or grade the truth of prose. Human review is required. No measured improvement on any model is claimed.
 
-Live web research was unavailable when this companion was authored. Its [source register](security-evidence-coach/references/sources.md) labels external reading links as unverified; examples are original and synthetic, not copied bounty reports.
+Live web research was unavailable during authoring. The [source register](security-evidence-coach/references/sources.md) labels external reading links as unverified; all new projects are original and synthetic, not copied bounty reports.
 
 ## Installation
-
-After the repository is published:
 
 ```bash
 npx skills add MoonFuji/bug-bounty-reporting-skills --list
@@ -86,7 +96,7 @@ python write-vulnerability-report/scripts/from_invariant_candidate.py \
   report-input.json
 ```
 
-The converter refuses non-reportable, self-certified, or review-owed candidates.
+The converter refuses non-reportable, self-certified, or review-owed candidates. The coach does not bypass this contract.
 
 ## Mechanical checks
 

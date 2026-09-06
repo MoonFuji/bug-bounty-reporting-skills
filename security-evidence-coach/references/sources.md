@@ -91,3 +91,18 @@ The advanced packets and revision drills are also original fictional material.
 The earlier authorization, state, measurement, reporting, and learning links remain
 background pointers only. No link was promoted to verified during this extension,
 and no public vulnerability report or model benchmark result was imported.
+
+## Architecture-first extension provenance
+
+The architecture-first guide, eight mechanism chapters, four multi-file projects,
+instructor maps, and assessment rubric are original teaching material. No live web
+research was available for this extension. No external link was promoted to verified.
+The pure reference components and their tests describe finite fictional contracts;
+they are not deployed systems, exploit reproductions, or measurements of a model.
+
+Mechanism chapters explain stable distinctions rather than asserting current behavior
+of a named framework, protocol implementation, platform, or device. For production
+assessment, obtain the actual revision, active configuration, and applicable contract.
+The open-ended project track supplements, but does not alter, the existing foundation
+and advanced proposition tracks. Its human rubric is a proposal, not a validated
+instrument for certifying cybersecurity expertise.
