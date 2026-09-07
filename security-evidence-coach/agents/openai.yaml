@@ -1,8 +1,9 @@
 interface:
   display_name: "Security Evidence Coach"
-  short_description: "Learn security judgment from evidence and contrastive cases"
+  short_description: "Architecture-first security assessment and evidence judgment"
   default_prompt: >-
-    Use $security-evidence-coach to assess the supplied security claim or teach
-    the missing distinction. Separate observations, inferences, and unknowns;
-    cite the supplied evidence; do not invent tests or treat practice as
-    certification. Use controlled examples, not live target probing.
+    Use $security-evidence-coach to investigate the designated codebase even when
+    no suspected bug is supplied. Reconstruct security responsibilities, derive
+    material architecture-specific questions, and ground conclusions in active
+    bindings and supplied evidence. Load mechanism lessons only as needed and
+    preserve unresolved dependencies without inventing tests or report readiness.

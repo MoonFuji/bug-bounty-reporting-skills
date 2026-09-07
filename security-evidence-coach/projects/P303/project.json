@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "project_id": "P303",
+  "title": "Beacon promotion",
+  "files": [
+    "approval.py",
+    "policies.json",
+    "product.md",
+    "release-record.json"
+  ]
+}

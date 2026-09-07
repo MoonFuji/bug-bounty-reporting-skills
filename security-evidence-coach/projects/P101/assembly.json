@@ -1,0 +1,18 @@
+{
+  "revision": "atlas-17",
+  "public_operations": {
+    "READ": {
+      "selected_function": "views.py:read_summary",
+      "principal": "authenticated session",
+      "permission": "permissions.py:permitted"
+    },
+    "EXPORT": {
+      "selected_function": "views.py:export_summary",
+      "principal": "authenticated session",
+      "permission": "permissions.py:permitted"
+    }
+  },
+  "store_binding": "records.json supplies the complete records and grant set for this exercise",
+  "projection": "views.py:summary",
+  "routing_scope": "These are all public operations in the designated review scope."
+}

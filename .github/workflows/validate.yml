@@ -40,3 +40,7 @@ jobs:
         run: python security-evidence-coach/scripts/test_advanced.py
       - name: Test evidence arithmetic
         run: python security-evidence-coach/labs/test_evidence_math.py
+      - name: Validate architecture assessment projects
+        run: python security-evidence-coach/scripts/assessment_projects.py validate
+      - name: Test architecture project exports and teaching contracts
+        run: python security-evidence-coach/scripts/test_assessment_projects.py

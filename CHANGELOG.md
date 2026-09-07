@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Add architecture-first Investigate mode for a designated system without a supplied vulnerability hypothesis; preserve Explain, Review, and Practice.
+- Add an architecture-assessment guide and eight progressively loaded mechanism chapters without adding a mandatory campaign or reporting form.
+- Add four open-ended multi-file projects, separate instructor maps and walkthroughs, and a human rubric for question selection and architectural understanding.
+- Add a non-executing project exporter with 46 offline integrity, CLI, and finite-contract tests; integrate it into CI while preserving every existing reporting and coaching test.
+- Keep both existing 24-case proposition tracks unchanged; distinguish software validation from unperformed model evaluations.
+
 - Extend the coach with four deeper reasoning guides, eight additional worked families, and six staged revision drills while keeping the core at 202 lines.
 - Add a separate balanced 24-case advanced track without changing the original foundational packets or suite ID; report evaluator-side family diagnostics.
 - Add defensive evidence arithmetic with explicit assumptions, 20 advanced-tool tests, and 24 arithmetic tests; retain all existing tests and reporting contracts.

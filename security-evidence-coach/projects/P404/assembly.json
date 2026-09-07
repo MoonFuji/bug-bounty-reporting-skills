@@ -1,0 +1,21 @@
+{
+  "revision": "cedar-5",
+  "desktop": {
+    "encode": "encoding.py:snapshot",
+    "public_view": "view.py:metadata"
+  },
+  "mobile": {
+    "encode": "external mobile adapter; not retained",
+    "public_view": "view.py:metadata"
+  },
+  "native_contract": {
+    "call": "synchronous",
+    "retains_buffer": false,
+    "length_unit": "bytes",
+    "encoding": "UTF-8"
+  },
+  "review_scope": [
+    "desktop",
+    "mobile"
+  ]
+}
