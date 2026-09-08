@@ -13,6 +13,7 @@ The reporting pipeline deliberately starts **after discovery**. It does not deci
 | [`review-vulnerability-report`](review-vulnerability-report/) | Run a fresh-context, triager-minded final review and issue `READY`, `BLOCKED`, or `PROVISIONAL`. |
 | [`adapt-vulnerability-report`](adapt-vulnerability-report/) | Adapt a canonical final report to a live platform or upstream disclosure contract without changing its claims. |
 | [`security-evidence-coach`](security-evidence-coach/) | Investigate designated software from its architecture, derive relevant assessment questions, explain security mechanisms, and review evidence without certifying expertise or report readiness. |
+| [`mobile-app-security-assessment`](mobile-app-security-assessment/) | Assess designated Android APK/split/AAB or iOS IPA/source material from app architecture, platform authority, and evidence; includes offline metadata intake and fictional practice. |
 
 ## Recommended reporting pipeline
 
@@ -33,6 +34,30 @@ validated candidate / evidence bundle
 ```
 
 The canonical report is the source of truth. Platform adaptation may reorder, shorten, or split fields, but it must not add impact, broaden scope, change severity, or omit load-bearing limitations.
+
+## Mobile assessment companion
+
+[`mobile-app-security-assessment/SKILL.md`](mobile-app-security-assessment/SKILL.md) starts from a designated app without requiring a suspected bug. Its Android-first path covers package/install identity, components and delegation, storage/key lifetimes, links/WebViews, network and backend authority, and native/framework boundaries. A distinct iOS path covers signing/entitlements, Keychain, groups/extensions, local authentication, and device-versus-simulator evidence. Detailed references load only when relevant; ordinary work requires no new ledger or quiz.
+
+```text
+Use $mobile-app-security-assessment to assess this designated mobile app.
+No suspected vulnerability is supplied. Explain its security responsibilities,
+prioritize material questions, cite applicable build/runtime evidence,
+and preserve unresolved dependencies without inventing impact.
+```
+
+The [research brief](mobile-app-security-assessment/references/research-brief.md) is an original synthesis, not a completed live literature review. Web access was disabled and earlier mobile research was not located. All external pointers, including Anthropic authoring guidance, are explicitly unverified in the [source register](mobile-app-security-assessment/references/sources.md). The [skill design note](mobile-app-security-assessment/evals/skill-design.md) documents the actual progressive-disclosure structure rather than claiming current official certification.
+
+Sixteen worked contrasts and eight fictional multi-artifact projects teach app-specific assessment questions and calibrated conclusions. Learner exports exclude instructor maps. The optional inventory reads bounded ZIP metadata without extracting, installing, or executing app contents; it is not a vulnerability scanner or signature verifier. This is human-directed assessment, not autonomous third-party targeting or exploitation.
+
+```bash
+python mobile-app-security-assessment/scripts/artifact_inventory.py /path/to/designated.apk
+python mobile-app-security-assessment/scripts/mobile_projects.py validate
+python mobile-app-security-assessment/scripts/mobile_projects.py export --project M214 --output /tmp/mobile-project
+python -m unittest discover -s mobile-app-security-assessment/scripts -p 'test_*.py'
+```
+
+The package includes 66 offline software tests. No Android/iOS runtime, external service, or model was evaluated. The [evaluation guide](mobile-app-security-assessment/evals/README.md) requires human review of architecture, question selection, evidence, and uncertainty; tool success never grants report readiness.
 
 ## Architecture-first assessment companion
 

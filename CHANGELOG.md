@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Add the independent `mobile-app-security-assessment` skill: Android-first app assessment with a distinct iOS path and a 187-line progressively loaded core.
+- Add fourteen references, sixteen worked contrasts, eight fictional app-first projects with 32 learner artifacts, and ten trigger/behavior evaluation prompts.
+- Add bounded read-only ZIP metadata inventory and learner-only project export, with 66 offline tests and CI integration; no device, target, or model execution.
+- Preserve all five existing skill subtrees and reporting contracts. Mark mobile sources and Anthropic authoring pointers as not live verified; this is a technical synthesis, not a completed live literature review.
+
 - Add architecture-first Investigate mode for a designated system without a supplied vulnerability hypothesis; preserve Explain, Review, and Practice.
 - Add an architecture-assessment guide and eight progressively loaded mechanism chapters without adding a mandatory campaign or reporting form.
 - Add four open-ended multi-file projects, separate instructor maps and walkthroughs, and a human rubric for question selection and architectural understanding.
