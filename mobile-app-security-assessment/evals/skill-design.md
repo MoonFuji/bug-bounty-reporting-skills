@@ -1,45 +1,59 @@
 # Skill design and authoring checks
 
-The user requested an Anthropic-style Agent Skill. Live official documentation could
-not be retrieved. These are explicit design choices, not a claim of current Anthropic
-review or approval. External pointers are in [sources](../references/sources.md#skill-authoring).
+## Research basis
 
-## Progressive disclosure
+The completed 2026-09-09 research cites Anthropic's `skill-creator` for concise
+triggering metadata, progressive disclosure, deterministic helpers and baseline
+comparisons. [Source and limits](../references/sources.md#skill-creator).
+The URL points to a moving branch; no upstream commit was retained. This package
+therefore documents its concrete choices instead of claiming official approval
+or a complete audit against every current Anthropic requirement.
 
-The only required instruction file is SKILL.md with lowercase hyphenated `name` and
-a descriptive `description`. It names Android APK/splits/AAB and iOS IPA/source, when
-the skill should trigger, and the work it does. No provider-specific tool identifier
-or agent API is required. Optional agents/openai.yaml is metadata, not a dependency.
+## Operational core
 
-The core gives the app-first path and routes directly to one-level reference files.
-It does not require reading every mechanism, completing a classroom exercise, or
-creating a JSON ledger before assessment. Each substantial reference has a short
-contents section. An experienced reader can consult one uncertainty; a novice can use
-a worked contrast without inheriting a new mandatory workflow.
+Keep the installed name `mobile-app-security-assessment`, its Android-first scope
+and distinct iOS path. The description should trigger for APK, AAB, IPA, entitlement
+review and mobile threat modeling before a suspected vulnerability is supplied.
+Ordinary feature work and report-formatting tasks should not be diverted here.
+
+The core stays below the existing package's 220-line budget. This is a local
+maintenance choice, not a universal Anthropic requirement. References are directly
+linked from SKILL.md. The main task never requires a quiz, answer key or source
+registry form; those support teaching and maintenance separately.
 
 ## Degrees of freedom
 
-Architecture explanation and question selection allow judgment and evidence-backed
-alternatives. Byte hashing and learner export are deterministic optional scripts.
-Neither their exit status nor a populated note certifies vulnerabilities. No script
-runs shell commands, installs apps, invokes models, or executes exercise text.
+Allow judgment when explaining responsibilities and choosing material questions.
+Use deterministic code for metadata validation, byte hashing and learner exports.
+Do not replace mechanism knowledge with rigid vulnerability-name checklists.
+Explain why a rule matters and what evidence would make it applicable.
 
-## Acceptance tests for the skill, not claims of expertise
+No helper invokes a model, executes evidence text, contacts targets, installs apps
+or obtains credentials. The research validator checks source metadata, dates and
+local references; it cannot certify source truth, freshness or app behavior.
+A valid hash establishes bytes, not independent review.
 
-Structural tests check metadata, core size, local links, source-status honesty,
-project coverage, safe exports, and tool behavior. Human evaluation checks whether
-a model identifies relevant questions in unfamiliar designated mobile material.
-Passing software tests does not establish model skill.
+## Progressive teaching
 
-## Trigger and non-trigger examples
+A reader who already understands a mechanism can skip its worked examples. A
+less-experienced reader can use one relevant contrast, then apply the principle
+to a changed architecture. Keep actual source limits close to the claim. Do not
+teach an Android bridge guarantee as an Apple rule or conflate intended sharing
+with broken isolation.
 
-Should trigger: assess this designated APK; review these iOS entitlements with app
-source; explain whether a split set is complete; assess a supplied mobile claim.
-Should not replace: ordinary app feature work; web-only report formatting; provider
-account support; public target acquisition; autonomous exploitation or submission.
+[Research transfer tasks](research-transfer.md) begin with a system rather than
+an identified bug. Copy only that learner document for an initial attempt; retain
+[the instructor guide](research-transfer-instructor.md) separately. Public tasks
+are not held-out benchmarks after their explanations have been read.
 
-## Change management
+## Evaluation and maintenance
 
-Keep original exercises stable once published. Add new project IDs for structural
-variants. Do not rebrand public answers as a private benchmark. Prefer a measured
-improvement on fixed tasks over more pages or stronger claims in the description.
+Compare with-skill and baseline runs using matched model, tools, revision, task,
+resource budget and output format. Repeat runs; inspect variation and concentrated
+errors. Human review should reward relevant question selection and defensible
+arguments, not response length, tool count or the number of findings.
+
+The original eight-project corpus and existing test contracts are preserved.
+The new paper exercises supplement rather than silently alter those test inputs.
+No model run or measured capability gain is claimed. Software tests cover the
+package; research status records what was actually sourced and what remains open.

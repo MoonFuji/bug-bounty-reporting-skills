@@ -69,7 +69,11 @@ python scripts/artifact_inventory.py /path/to/designated.apk
 
 It reads bounded ZIP metadata and hashes the file. It neither extracts members
 nor decodes manifests, verifies signatures, decrypts executables, installs apps,
-or judges vulnerabilities. Refusal means unsupported intake, not a defective app.
+nor judges vulnerabilities. Refusal means unsupported intake, not a defective app.
+
+Bind platform claims to the actual OS, target SDK, build, installed modules and
+library versions. A new OS protection is neither universal immunity nor permission
+to disable it. See the [research applicability map](references/research-integration.md).
 
 ### 2. Reconstruct product and authority
 
@@ -83,13 +87,15 @@ first; Android assumptions do not transfer automatically.
 
 Include account switching, process recreation, extensions/background work, and
 server-side ownership only when the product actually has them. A framework is
-not evidence that its optional security feature is active.
+not evidence that its optional security feature is active. Compare authored
+configuration with supplied generated/merged release evidence where available.
 
 ### 3. Choose consequential review questions
 
 Tie every question to a product promise and an observed component relationship.
 Prioritize a material unresolved authority, identity, lifetime, or data-flow
 question over a generic flag. Explain the priority in prose; do not invent scores.
+Use [assessment design](references/assessment-design.md) when no question exists yet.
 
 Examples of questions, not assumed defects:
 - Does the installed sharing path apply the permission contract for its recipient?
@@ -108,6 +114,8 @@ Select only references relevant to that question:
 | TLS, sessions, attestation, app versus API ownership | [Network and server authority](references/network-and-server.md) |
 | JNI, native libraries, Flutter, React Native, SDKs | [Native and cross-platform](references/native-and-cross-platform.md) |
 | Tool roles, platform prerequisites, missing capabilities | [Tooling](references/tooling.md) |
+| Version selectors, documented cases, MASVS coverage | [Research lessons](references/research-integration.md) |
+| Selecting questions and interpreting defensive controls | [Assessment design](references/assessment-design.md) |
 
 ### 4. Connect the evidence across the boundary
 
@@ -129,6 +137,8 @@ behavior cannot silently become a claim about an unmodified released app.
 
 Know what the observation mechanism could detect. A failed test, missing callback,
 HTTP success, scanner warning, or crashing process is not a complete impact argument.
+A negative control must reach the relevant decision; an unrelated earlier error
+cannot establish it. Derive expectations from the independent product contract.
 Do not modify assertions to fit an implementation. Missing execution access stays
 unknown; use source/design assessment rather than inventing a reproduction.
 
@@ -145,8 +155,10 @@ bounty eligibility, program caps, and public duplicate-search results. Never cla
 private-pool novelty from absence of public matches.
 
 One settled question does not end a broad assessment. Preserve remaining relevant
-questions, evidence locators, and blocked dependencies in an ordinary note. Do not
-expand permission or manufacture a finding to keep working.
+questions, evidence locators, and blocked dependencies in an ordinary note. A
+sibling, build variant or other platform needs its own applicability argument.
+Use MASVS categories as a coverage backstop, not a mandatory run-everything list.
+Do not expand permission or manufacture a finding to keep working.
 
 ## Output contract
 
@@ -164,10 +176,13 @@ only to resolve a difficult distinction; they are teaching material, not a check
 
 The [evaluation guide](evals/README.md) starts from an app description and multiple
 artifacts, not a preselected bug. Instructor notes stay outside learner exports.
+Additional [research transfer tasks](evals/research-transfer.md) assess composition,
+lifecycle and platform parity without changing the original project corpus.
 
 ```bash
 python scripts/mobile_projects.py validate
 python scripts/mobile_projects.py export --project M214 --output /tmp/mobile-project
+python scripts/validate_research.py
 python -m unittest discover -s scripts -p 'test_*.py'
 ```
 
@@ -176,12 +191,11 @@ prose as expert. Use human review and matched runs to evaluate actual usefulness
 
 ## Sources and maintenance
 
-Read the [source register](references/sources.md) and [research brief](references/research-brief.md).
-External web retrieval was unavailable during authoring, and earlier mobile
-research was not located. Technical material is a bounded synthesis, not freshly
-verified research. Check official versioned documentation before relying on an
-OS default, SDK API, current program rule, or tool option.
+Read the [source register](references/sources.md), [source index](references/source-index.json)
+and [research brief](references/research-brief.md). The completed research report
+supplies cited findings; this integration is not a second independent web retrieval.
+Limited Apple API content and advisory leads remain explicitly unresolved.
+Check versioned primary documentation for exact defaults and current program rules.
 
-The [skill design note](evals/skill-design.md) explains progressive disclosure,
-trigger tests, portability, and evaluation limits. It does not claim a live audit
-against Anthropic's current documentation.
+The [skill design note](evals/skill-design.md) connects progressive disclosure and
+baseline evaluations to the report's Anthropic source without claiming certification.
