@@ -46,18 +46,19 @@ prioritize material questions, cite applicable build/runtime evidence,
 and preserve unresolved dependencies without inventing impact.
 ```
 
-The [research brief](mobile-app-security-assessment/references/research-brief.md) is an original synthesis, not a completed live literature review. Web access was disabled and earlier mobile research was not located. All external pointers, including Anthropic authoring guidance, are explicitly unverified in the [source register](mobile-app-security-assessment/references/sources.md). The [skill design note](mobile-app-security-assessment/evals/skill-design.md) documents the actual progressive-disclosure structure rather than claiming current official certification.
+The [research brief](mobile-app-security-assessment/references/research-brief.md) now applies the completed September 9, 2026 Deep Research report, which attributes discovery to Exa and framework/authoring retrieval to Context7. The [research integration chapter](mobile-app-security-assessment/references/research-integration.md) covers platform applicability, generated release composition, web/native trust, iOS data/capabilities, framework adapters and MASVS coverage. The [source register](mobile-app-security-assessment/references/sources.md) distinguishes 17 report-cited sources, three limited-content Apple API pointers and two historical research leads; inherited citations are not fresh independent retrieval in this implementation. Detailed unsupported claims remain unresolved. The [skill design note](mobile-app-security-assessment/evals/skill-design.md) connects the report's Anthropic guidance to a 201-line core, progressive disclosure and baseline evaluations without claiming certification.
 
 Sixteen worked contrasts and eight fictional multi-artifact projects teach app-specific assessment questions and calibrated conclusions. Learner exports exclude instructor maps. The optional inventory reads bounded ZIP metadata without extracting, installing, or executing app contents; it is not a vulnerability scanner or signature verifier. This is human-directed assessment, not autonomous third-party targeting or exploitation.
 
 ```bash
 python mobile-app-security-assessment/scripts/artifact_inventory.py /path/to/designated.apk
 python mobile-app-security-assessment/scripts/mobile_projects.py validate
+python mobile-app-security-assessment/scripts/validate_research.py
 python mobile-app-security-assessment/scripts/mobile_projects.py export --project M214 --output /tmp/mobile-project
 python -m unittest discover -s mobile-app-security-assessment/scripts -p 'test_*.py'
 ```
 
-The package includes 66 offline software tests. No Android/iOS runtime, external service, or model was evaluated. The [evaluation guide](mobile-app-security-assessment/evals/README.md) requires human review of architecture, question selection, evidence, and uncertainty; tool success never grants report readiness.
+The package includes 105 offline software tests: the original 66 plus 39 research-metadata regressions. Three new [paper transfer tasks](mobile-app-security-assessment/evals/research-transfer.md) complement the unchanged eight-project corpus; give learners only the task file, not its separate instructor notes. No Android/iOS runtime, external service, or model was evaluated. The [evaluation guide](mobile-app-security-assessment/evals/README.md) requires human review of architecture, question selection, evidence, and uncertainty; tool success never grants report readiness.
 
 ## Architecture-first assessment companion
 
