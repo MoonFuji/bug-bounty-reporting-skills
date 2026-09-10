@@ -1,0 +1,8 @@
+interface:
+  display_name: "Mobile App Hunter"
+  short_description: "Android and iOS architecture-first security hunting"
+  default_prompt: >-
+    Use $mobile-app-hunter to assess this designated mobile app before a suspected
+    vulnerability is supplied. Begin with its artifacts and security responsibilities,
+    identify material hunting questions, cite applicable evidence, and preserve
+    unresolved gaps.

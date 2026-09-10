@@ -44,3 +44,9 @@ jobs:
         run: python security-evidence-coach/scripts/assessment_projects.py validate
       - name: Test architecture project exports and teaching contracts
         run: python security-evidence-coach/scripts/test_assessment_projects.py
+      - name: Validate mobile hunter skill
+        run: python mobile-app-hunter/scripts/mobile_projects.py validate
+      - name: Validate mobile research provenance
+        run: python mobile-app-hunter/scripts/validate_research.py
+      - name: Test mobile hunter offline tooling
+        run: python -m unittest discover -s mobile-app-hunter/scripts -p 'test_*.py'
