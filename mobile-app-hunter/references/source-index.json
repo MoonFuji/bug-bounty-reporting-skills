@@ -43,7 +43,6 @@
       "applicability": "The cited main-branch URL is moving; no upstream commit was retained. These are design choices, not official certification.",
       "upstream_revision": null,
       "used_by": [
-        "references/research-integration.md",
         "evals/skill-design.md"
       ]
     },

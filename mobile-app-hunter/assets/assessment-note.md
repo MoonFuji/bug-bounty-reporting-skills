@@ -9,10 +9,12 @@ permitted operations, and unavailable material.
 Product promises; principals; app/OS/SDK/backend decisions; active bindings.
 
 ## Material questions
-Question | Why this product makes it relevant | Evidence locator | Remaining dependency
+| Question | Why this product makes it relevant | Evidence locator | Remaining dependency |
+|---|---|---|---|
 
 ## Outcomes
-Proposition | Supported / contradicted / inconclusive | Decisive evidence | Limits
+| Proposition | Supported / contradicted / inconclusive | Decisive evidence | Limits |
+|---|---|---|---|
 
 ## Continue or hand off
 Unassessed relevant paths, owner-required material, responsible layer,
