@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "research_title": "Designing `mobile-app-hunter`: Deep Research for an Anthropic-Style Android and iOS Vulnerability-Hunting Skill",
+  "research_as_of": "2026-09-09",
+  "integrated_on": "2026-09-10",
+  "provenance": "completed_research_report",
+  "independently_retrieved_in_integration": false,
+  "tool_attribution": "The completed report states that Exa and Context7 were used; this integration reads that report and its citation metadata.",
+  "sources": [
+    {
+      "id": "masvs",
+      "source_type": "standard",
+      "url": "https://mas.owasp.org/MASVS/",
+      "title": "MASVS coverage groups",
+      "status": "report_cited",
+      "claim": "Storage, cryptography, authentication/authorization, network, platform, code, resilience and privacy provide a coverage model.",
+      "applicability": "Map relevant product properties to categories; a category is neither a bounty policy nor a completed verification test.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "mastg",
+      "source_type": "standard",
+      "url": "https://mas.owasp.org/news/2026/07/04/mastg-v200-release/",
+      "title": "MASTG v2.0.0 release announcement",
+      "status": "report_cited",
+      "claim": "The research identifies the v2.0.0 release announcement dated 2026-07-04 and the separation of tests, techniques, demos, tools, knowledge and best practices.",
+      "applicability": "Use this named research baseline, not an evergreen latest claim. Pin an actual requirement/test revision before asserting conformance.",
+      "upstream_revision": "v2.0.0",
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "skill-creator",
+      "source_type": "authoring",
+      "url": "https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md",
+      "title": "Anthropic skill-creator",
+      "status": "report_cited",
+      "claim": "The research recommends concise triggering metadata, progressive resources, deterministic helpers and comparisons against a baseline.",
+      "applicability": "The cited main-branch URL is moving; no upstream commit was retained. These are design choices, not official certification.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md",
+        "evals/skill-design.md"
+      ]
+    },
+    {
+      "id": "android-bundle",
+      "source_type": "platform",
+      "url": "https://developer.android.com/guide/app-bundle",
+      "title": "Android App Bundle",
+      "status": "report_cited",
+      "claim": "A publishing bundle can produce device-specific APK sets.",
+      "applicability": "Bind conclusions to the installed base/configuration/feature set, build variant and ABI; one supplied APK need not represent all deliveries.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "android-intents",
+      "source_type": "platform",
+      "url": "https://developer.android.com/privacy-and-security/risks/intent-redirection",
+      "title": "Android intent redirection",
+      "status": "report_cited",
+      "claim": "The report identifies Android 16 default hardening relevant to intent redirection.",
+      "applicability": "Establish device API, target SDK, selected path and applicable documented behavior. This source is neither a universal immunity claim nor a reason to disable protections.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "android-bridge",
+      "source_type": "platform",
+      "url": "https://developer.android.com/privacy-and-security/risks/insecure-webview-native-bridges",
+      "title": "WebView native bridges",
+      "status": "report_cited",
+      "claim": "The report describes frame-origin limitations of addJavascriptInterface and distinct origin-validation concerns for message channels.",
+      "applicability": "Identify the actual API, frames, content and registration lifetime. Do not transfer one bridge API contract to another.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "android-keystore",
+      "source_type": "platform",
+      "url": "https://developer.android.com/privacy-and-security/keystore",
+      "title": "Android Keystore",
+      "status": "report_cited",
+      "claim": "Keystore can keep key material non-exportable and constrain key use.",
+      "applicability": "Key exportability, user authentication, hardware support and business authorization are different properties; record the selected key attributes and environment.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "android-links",
+      "source_type": "platform",
+      "url": "https://developer.android.com/training/app-links/verify-android-applinks",
+      "title": "Android App Links verification",
+      "status": "report_cited",
+      "claim": "The research identifies link association and app selection as platform-specific evidence.",
+      "applicability": "Installed handler, domain association and OS behavior remain task-time facts; association alone does not authorize a resource.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "android-integrity",
+      "source_type": "platform",
+      "url": "https://developer.android.com/google/play/integrity/overview",
+      "title": "Play Integrity overview",
+      "status": "report_cited",
+      "claim": "Integrity signals contribute to server-side decisions.",
+      "applicability": "Do not substitute an integrity result for account/resource/action authorization or assume a universal device verdict.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "apple-signing",
+      "source_type": "platform",
+      "url": "https://support.apple.com/guide/security/app-code-signing-process-sec7c917bf14/web",
+      "title": "Apple app code signing",
+      "status": "report_cited",
+      "claim": "Apple app executable trust is based on code signing.",
+      "applicability": "Distinguish signed device app, extension, simulator, provisioning and source intent. Signing does not prove application correctness.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "apple-keychain",
+      "source_type": "platform",
+      "url": "https://support.apple.com/guide/security/keychain-data-protection-secb0694df1a/web",
+      "title": "Apple Keychain data protection",
+      "status": "report_cited",
+      "claim": "Keychain access and sharing depend on application identity, access groups and item protection policy.",
+      "applicability": "Use effective signed capabilities and item attributes; intended sharing among related apps is not by itself exposure.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "apple-data",
+      "source_type": "platform",
+      "url": "https://support.apple.com/guide/security/data-protection-classes-secb010e978a/web",
+      "title": "Apple Data Protection classes",
+      "status": "report_cited",
+      "claim": "Different protection classes intentionally have different accessibility across device-lock states.",
+      "applicability": "Record the actual class, relevant device state and intended availability. File Data Protection, Keychain attributes and local authentication are not interchangeable.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "apple-integrity",
+      "source_type": "platform",
+      "url": "https://developer.apple.com/security/",
+      "title": "Apple security overview",
+      "status": "report_cited",
+      "claim": "The research describes App Attest as an input to server integrity/risk decisions.",
+      "applicability": "This broad source does not verify a concrete App Attest API, payload format, request-binding implementation or device support matrix.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "apple-entitlements",
+      "source_type": "platform",
+      "url": "https://developer.apple.com/documentation/bundleresources/entitlements",
+      "title": "Apple entitlements reference",
+      "status": "limited_content",
+      "claim": "The report retains this official API pointer but identifies JavaScript-rendered documentation limits.",
+      "applicability": "Detailed entitlement semantics still require accessible version-specific source documentation.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/sources.md"
+      ]
+    },
+    {
+      "id": "apple-associated",
+      "source_type": "platform",
+      "url": "https://developer.apple.com/documentation/xcode/configuring-an-associated-domain",
+      "title": "Associated domain configuration",
+      "status": "limited_content",
+      "claim": "The report retains this official API pointer but identifies JavaScript-rendered documentation limits.",
+      "applicability": "Do not infer a detailed association-file grammar, cache behavior or OS-version contract from pointer presence.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/sources.md"
+      ]
+    },
+    {
+      "id": "apple-script-handler",
+      "source_type": "platform",
+      "url": "https://developer.apple.com/documentation/webkit/wkscriptmessagehandler",
+      "title": "WKScriptMessageHandler",
+      "status": "limited_content",
+      "claim": "The report retains this official API pointer but identifies JavaScript-rendered documentation limits.",
+      "applicability": "Do not infer frame/origin or content-world API behavior from the Android bridge lesson.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/sources.md"
+      ]
+    },
+    {
+      "id": "react-native",
+      "source_type": "framework",
+      "url": "https://reactnative.dev/docs/security",
+      "title": "React Native security",
+      "status": "report_cited",
+      "claim": "The report says React Native provides no built-in sensitive-data store and describes Async Storage as unencrypted storage.",
+      "applicability": "Inspect the installed storage dependency and native adapters. Unencrypted does not mean publicly readable or sufficient proof of disclosure.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "flutter",
+      "source_type": "framework",
+      "url": "https://docs.flutter.dev/platform-integration/platform-channels",
+      "title": "Flutter platform channels",
+      "status": "report_cited",
+      "claim": "Platform channels cross between Dart and platform-native implementations; typing is not an authorization guarantee.",
+      "applicability": "Pin plugin/framework versions and selected Android/iOS implementations; do not presume platform parity from a shared API name.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "engagesdk",
+      "source_type": "first_party_case",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/04/09/intent-redirection-vulnerability-third-party-sdk-android/",
+      "title": "Microsoft EngageSDK disclosure",
+      "status": "report_cited",
+      "claim": "The report describes an SDK-added exported activity in the final merged manifest and associated delegated-authority consequences.",
+      "applicability": "Historical affected integration only. This teaching summary does not establish that a current app/version is affected or supply reproduction steps.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "tiktok",
+      "source_type": "first_party_case",
+      "url": "https://www.microsoft.com/en-us/security/blog/2022/08/31/vulnerability-in-tiktok-android-app-could-lead-to-one-click-account-hijacking/",
+      "title": "Microsoft TikTok Android disclosure",
+      "status": "report_cited",
+      "claim": "The report describes security consequences from composition of link handling, WebView navigation and native JavaScript interfaces.",
+      "applicability": "Historical disclosure, not an assertion about current TikTok. Navigation and native capability must be evaluated together without generalizing every bridge to a defect.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/research-integration.md"
+      ]
+    },
+    {
+      "id": "home-assistant",
+      "source_type": "first_party_case",
+      "url": "https://github.com/home-assistant/core/security/advisories/GHSA-68f4-97mf-f68w",
+      "title": "Home Assistant advisory lead",
+      "status": "lead_only",
+      "claim": "The research lists this advisory as a possible follow-up.",
+      "applicability": "Repository, affected component, conditions and fixed versions must be read before using this as a worked case.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/sources.md"
+      ]
+    },
+    {
+      "id": "signal",
+      "source_type": "first_party_case",
+      "url": "https://securitylab.github.com/advisories/GHSL-2026-102_Android_SignalApp/",
+      "title": "GitHub Security Lab Signal advisory lead",
+      "status": "lead_only",
+      "claim": "The research lists this advisory as a possible follow-up.",
+      "applicability": "A title or advisory identifier does not establish affected/fixed versions, prerequisites or a transferable case account.",
+      "upstream_revision": null,
+      "used_by": [
+        "references/sources.md"
+      ]
+    }
+  ]
+}

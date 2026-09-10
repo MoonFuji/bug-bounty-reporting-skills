@@ -1,80 +1,58 @@
-# Research brief: mobile security assessment as a skill
+# Research integration brief
 
-## Status and question
+## Decision
 
-Prepared 2026-09-08. This is an original technical synthesis and curriculum design,
-**not a completed live literature review**. Web research was disabled. The requested
-earlier Android/iOS research was not located in the available files or personal context.
-No Exa or Context7 result was retrieved, and no external reference is marked freshly
-verified. See the [source register](sources.md) for background pointers and outstanding checks.
+The completed mobile research has been incorporated into the existing
+`mobile-app-security-assessment` skill. The report's proposed name
+`mobile-app-hunter` is a design suggestion, not a required rename. Keeping the
+installed name preserves invocation and repository registration compatibility.
+The report's useful contribution is architecture-aware judgment, not a new label
+or a larger mandatory workflow.
 
-The design question is: what mobile-specific knowledge helps an agent assess a
-designated app before it is handed a suspected vulnerability? The answer is not a
-catalogue of payloads. It is understanding which artifact, principal, decision,
-representation, and lifecycle make a security claim applicable.
+Research snapshot: 2026-09-09. Integration: 2026-09-10. Source status and primary
+URLs are in [sources](sources.md) and [source-index.json](source-index.json).
+The integration read the completed report and its citation metadata; it did not
+perform a second external retrieval or app/runtime evaluation.
 
-## Android and iOS require different evidence paths
+## Adopted findings
 
-| Concern | Android emphasis | iOS emphasis |
+| Research finding | Implemented location | Important limit |
 |---|---|---|
-| Distribution | Base/configuration/feature splits; AAB versus installed APKs | IPA versus .app, extensions, signed device versus simulator product |
-| Identity | Package/signing context, platform caller, app account, remote session | Bundle/team/signing context, entitlements, groups, app account |
-| Collaboration | Components, Binder services, providers, URI/pending-operation grants | Extensions, groups, shared Keychain, system-mediated handoff |
-| Local secrets | Storage/backup scope, Keystore policy, local authentication | Data Protection, Keychain attributes/groups, local authentication |
-| Navigation | Intent routing, app-link association, selected handler | URL schemes, universal links, scene/extension binding |
-| Runtime interpretation | DEX, native libraries, WebView, framework artifacts | Mach-O, Swift/Objective-C, WebKit, framework and extension artifacts |
-| Server authority | Neither client type can establish backend object policy alone | Same responsibility distinction, different local integration |
+| Start before a suspected bug exists | Existing Assess path plus [assessment design](assessment-design.md) | Designated code/artifacts; no autonomous target acquisition |
+| Build composition is security-relevant | [Research lessons](research-integration.md#release-composition) | A dependency name is not evidence of an affected selected path |
+| Platform behavior needs selectors | [Applicability](research-integration.md#platform-applicability) | OS, target SDK, build and library versions are not interchangeable |
+| Strong primitives do not prove composition | [iOS and framework lessons](research-integration.md#ios-authority-and-data) | Signing, storage and integrity are separate from business permission |
+| MASVS/MASTG backstop architecture work | [Coverage map](research-integration.md#standards-as-a-coverage-backstop) | Categories and a named release, not invented test IDs |
+| Use historical reports as mechanism lessons | [Documented examples](research-integration.md#documented-case-lessons) | No payloads, current-vendor claims or assumed fixed-version coverage |
+| Test selection and transfer, not only verdicts | [New transfer tasks](../evals/research-transfer.md) | Human rubric; public teaching tasks, not held-out benchmarks |
+| Keep core short and resources directly reachable | [Design note](../evals/skill-design.md) | No Anthropic certification or measured model gain |
 
-These contrasts are a review map, not an evergreen table of platform defaults. The
-references consistently require the actual runtime and current official contract for
-version-dependent behavior.
+## What this does not claim
 
-## Where the curriculum adds judgment
+This update does not upgrade every old background link to verified. The report
+itself identified incomplete retrieval for some Apple API documentation. Two
+advisories mentioned as leads do not become detailed historical cases. Exact
+platform defaults absent from the report still need applicable primary sources.
 
-The app-first path emphasizes responsibilities rather than broad sink searches.
-A document collaboration app warrants recipient/scope analysis; a background-sync app
-warrants account and commit-lifetime analysis; a hybrid app warrants a content/native
-boundary explanation. A sensitive library name does not itself justify priority.
+The MASTG v2.0.0 announcement is the research's identified baseline. This is not a
+claim that it is always the latest, or that this package implements every test.
+No change to a bounty program's eligibility, scope or rewards is inferred.
 
-The difficult distinctions recur across real software designs: exposure versus
-permission, registration versus invocation, delegation versus ambient authority,
-selected build versus source intent, acceptance versus commitment, encryption versus
-key-use policy, and app navigation versus server authorization. Each chapter includes
-conditions and alternatives instead of absolute scanner-style verdicts.
+The research also proposed a larger tool suite and a more extensive hunting
+loop. This integration keeps human-directed architecture/source assessment,
+controlled defensive evidence interpretation, and ordinary continuation notes.
+It does not add exploitation, service scanning, protection bypasses, payload
+construction, or automatic finding submission. No new app-inspection binaries
+or framework dependencies are required.
 
-This material can help an agent explain why a particular source/configuration question
-matters. It does not establish that a model discovers more valid findings, that a program
-pays for a class, or that any technique is undercrowded. Those require separate evidence.
+## Evaluation next, not more pages by default
 
-## Deliberate boundaries
+Run a baseline and skill-assisted assessment on the same designated project,
+with matched artifact revision, tools, budget and output task. Evaluate relevant
+question selection, correct authority/composition, conclusions and justified
+unknowns. Repeat runs and include secure and incomplete-evidence variants.
+Score substantive arguments, not vocabulary, tool volume or number of findings.
 
-The package supports human-directed source/design assessment and bounded local metadata
-intake. It does not choose public targets, install or execute unknown apps, bypass TLS
-pinning or device protections, use discovered credentials, or generate exploit chains.
-Backend testing is not inferred from access to an APK. Missing platform capabilities
-remain explicit; the tool never substitutes a synthetic model for production proof.
-
-The reporting skills remain unchanged. No coaching or metadata result becomes validated
-reporting input automatically. The inventory has no severity output, and the exercises
-have no automatic expertise score.
-
-## What a future live research pass must verify
-
-For platform claims, use versioned Android and Apple documentation first. Record the
-selected OS/target SDK/build conditions and the exact statement the source supports.
-For verification structure, inspect the applicable MASVS/MASTG revision; do not invent
-requirement identifiers from memory or map every control failure to a bounty claim.
-
-For tool use, inspect the installed tool's help and source release rather than copying
-an obsolete command. For framework behavior, use the actual library/version and official
-reference; a documentation search result is not proof that the app selected that API.
-
-Public write-ups, when available, should be used to extract defensive mechanisms and
-counterexamples, not copied exploit instructions. Record author, publication date,
-affected revision, root cause, stated actor, missing conditions, and subsequent fix
-status. Publicly disclosed examples do not establish private-duplicate visibility.
-
-For Anthropic authoring guidance, verify the current official skill documentation.
-The package already uses minimal name/description metadata, an actionable short core,
-progressive references, deterministic optional tooling, and explicit triggering/evaluation
-examples. That design is documented; current official conformity is not claimed.
+The source-index and CI tests validate the package. Only actual independent
+model runs can establish that this curriculum improves performance. None have
+been performed by this integration.
