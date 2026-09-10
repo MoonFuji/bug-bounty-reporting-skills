@@ -2,12 +2,13 @@
 
 ## Unreleased
 
+- Adopt `mobile-app-hunter` as the final pre-install skill name, replacing the earlier working name before first merge, release, or installation; update skill metadata, evaluator identity, repository registration, documentation, and CI paths together.
 - Apply the completed 2026-09-09 mobile Deep Research report: add platform/build applicability, SDK composition, iOS/framework distinctions, historical mechanism lessons and a MASVS coverage map.
 - Preserve inherited-source provenance in a 22-entry register: 17 report-cited, three limited-content and two lead-only sources; do not claim fresh external retrieval or universal verification.
 - Connect the 201-line mobile core to research-backed assessment design and three separate paper transfer exercises without changing the original eight-project corpus or any other skill.
 - Add an offline research-metadata validator, 39 regressions and CI validation; keep metadata success distinct from source truth, runtime verification and model capability.
 
-- Add the independent `mobile-app-security-assessment` skill: Android-first app assessment with a distinct iOS path and a 187-line progressively loaded core.
+- Add the independent `mobile-app-hunter` skill: Android-first app hunting/assessment with a distinct iOS path and a progressively loaded core.
 - Add fourteen references, sixteen worked contrasts, eight fictional app-first projects with 32 learner artifacts, and ten trigger/behavior evaluation prompts.
 - Add bounded read-only ZIP metadata inventory and learner-only project export, with 66 offline tests and CI integration; no device, target, or model execution.
 - Preserve all five existing skill subtrees and reporting contracts. Mark mobile sources and Anthropic authoring pointers as not live verified; this is a technical synthesis, not a completed live literature review.

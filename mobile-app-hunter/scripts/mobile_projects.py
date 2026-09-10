@@ -138,12 +138,12 @@ def validate_package(root: Path = ROOT) -> dict:
     if not skill.startswith('---\n') or '\n---\n' not in skill[4:]:
         raise ValueError('missing skill frontmatter')
     metadata = skill.split('---\n', 2)[1]
-    if 'name: mobile-app-security-assessment\n' not in metadata or 'description:' not in metadata:
+    if 'name: mobile-app-hunter\n' not in metadata or 'description:' not in metadata:
         raise ValueError('invalid skill metadata')
     if len(skill.splitlines()) > 220:
         raise ValueError('core exceeds the package 220-line budget')
     evals = read_json(root / 'evals' / 'evals.json')
-    if evals.get('skill_name') != 'mobile-app-security-assessment':
+    if evals.get('skill_name') != 'mobile-app-hunter':
         raise ValueError('evaluation skill_name mismatch')
     if not isinstance(evals.get('evals'), list) or len(evals['evals']) < 4:
         raise ValueError('missing trigger and behavior evaluations')

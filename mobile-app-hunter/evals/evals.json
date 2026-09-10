@@ -1,5 +1,5 @@
 {
-  "skill_name": "mobile-app-security-assessment",
+  "skill_name": "mobile-app-hunter",
   "evals": [
     {"id": "trigger-apk", "prompt": "Assess this designated Android APK; no suspected bug is supplied.", "expected_behavior": "Choose Assess; begin with artifact/installation and product responsibility, not a bug-name list."},
     {"id": "trigger-ios", "prompt": "Review an owner-supplied IPA and entitlement inspection.", "expected_behavior": "Use iOS path; distinguish effective signing context from plist and simulator evidence."},

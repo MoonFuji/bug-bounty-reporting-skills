@@ -1,7 +1,0 @@
-interface:
-  display_name: "Mobile App Security Assessment"
-  short_description: "Android and iOS architecture-first security review"
-  default_prompt: >-
-    Use $mobile-app-security-assessment to assess this designated mobile app.
-    Begin with its artifacts and security responsibilities, identify material
-    review questions, cite applicable evidence, and preserve unresolved gaps.

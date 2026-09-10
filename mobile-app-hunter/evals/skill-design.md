@@ -11,9 +11,13 @@ or a complete audit against every current Anthropic requirement.
 
 ## Operational core
 
-Keep the installed name `mobile-app-security-assessment`, its Android-first scope
-and distinct iOS path. The description should trigger for APK, AAB, IPA, entitlement
-review and mobile threat modeling before a suspected vulnerability is supplied.
+The pre-install skill name is `mobile-app-hunter`: the research proposed that name,
+and it better matches the intended role of architecture-first hunting judgment.
+Because the skill had not been merged, released, or installed under the earlier
+working name, no compatibility alias is retained. Its scope remains Android-first
+with a distinct iOS path. The description should trigger for APK, AAB, IPA,
+entitlement review, mobile bug-bounty assessment, architecture-first hypothesis
+generation, and mobile threat modeling before a suspected vulnerability is supplied.
 Ordinary feature work and report-formatting tasks should not be diverted here.
 
 The core stays below the existing package's 220-line budget. This is a local

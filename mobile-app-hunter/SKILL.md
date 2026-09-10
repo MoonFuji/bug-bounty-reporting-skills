@@ -1,15 +1,16 @@
 ---
-name: mobile-app-security-assessment
+name: mobile-app-hunter
 description: >-
-  Assess a designated Android APK, split APK set, AAB, or iOS IPA/app source
-  before a suspected vulnerability is supplied. Use for mobile bug-bounty
-  assessment, manifest or entitlement review, mobile threat modeling, and
-  explaining app/OS/backend trust boundaries. Android-first with a distinct
-  iOS path. Produce evidence-backed review priorities and bounded conclusions;
-  not autonomous third-party targeting, exploitation, or submission.
+  Hunt for security vulnerabilities in a designated Android APK, split APK set,
+  AAB, or iOS IPA/app source before a suspected bug is supplied. Use for
+  authorized mobile bug-bounty assessment, manifest or entitlement review,
+  architecture-first hypothesis generation, mobile threat modeling, and
+  app/OS/backend trust-boundary analysis. Android-first with a distinct iOS path.
+  Produce evidence-backed hunting priorities and bounded conclusions; not
+  autonomous third-party targeting, exploitation, or submission.
 ---
 
-# Mobile App Security Assessment
+# Mobile App Hunter
 
 ## Start from the app, not a scanner finding
 
@@ -40,8 +41,8 @@ credentials, personal data, or undisclosed findings to public analysis services.
 
 ## Pick the path
 
-**Assess (default):** reconstruct responsibilities and choose material questions
-from a designated app, even when no vulnerability claim was supplied.
+**Assess (default):** reconstruct responsibilities and choose material hunting
+questions from a designated app, even when no vulnerability claim was supplied.
 
 **Explain:** load one relevant mechanism and contrast a secure implementation,
 an established discrepancy, and insufficient evidence.
@@ -162,7 +163,7 @@ Do not expand permission or manufacture a finding to keep working.
 
 ## Output contract
 
-Deliver a short architecture summary, prioritized questions with reasons,
+Deliver a short architecture summary, prioritized hunting questions with reasons,
 evidence-backed outcomes, and unresolved dependencies. Use the optional
 [assessment note](assets/assessment-note.md) only when it helps continuation.
 For a supplied finding, include build/runtime applicability, responsible layer,

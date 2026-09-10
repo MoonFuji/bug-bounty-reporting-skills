@@ -13,7 +13,7 @@ The reporting pipeline deliberately starts **after discovery**. It does not deci
 | [`review-vulnerability-report`](review-vulnerability-report/) | Run a fresh-context, triager-minded final review and issue `READY`, `BLOCKED`, or `PROVISIONAL`. |
 | [`adapt-vulnerability-report`](adapt-vulnerability-report/) | Adapt a canonical final report to a live platform or upstream disclosure contract without changing its claims. |
 | [`security-evidence-coach`](security-evidence-coach/) | Investigate designated software from its architecture, derive relevant assessment questions, explain security mechanisms, and review evidence without certifying expertise or report readiness. |
-| [`mobile-app-security-assessment`](mobile-app-security-assessment/) | Assess designated Android APK/split/AAB or iOS IPA/source material from app architecture, platform authority, and evidence; includes offline metadata intake and fictional practice. |
+| [`mobile-app-hunter`](mobile-app-hunter/) | Hunt through designated Android APK/split/AAB or iOS IPA/source material using app architecture, platform authority, hypothesis generation, and evidence; includes offline metadata intake and fictional practice. |
 
 ## Recommended reporting pipeline
 
@@ -35,30 +35,30 @@ validated candidate / evidence bundle
 
 The canonical report is the source of truth. Platform adaptation may reorder, shorten, or split fields, but it must not add impact, broaden scope, change severity, or omit load-bearing limitations.
 
-## Mobile assessment companion
+## Mobile App Hunter
 
-[`mobile-app-security-assessment/SKILL.md`](mobile-app-security-assessment/SKILL.md) starts from a designated app without requiring a suspected bug. Its Android-first path covers package/install identity, components and delegation, storage/key lifetimes, links/WebViews, network and backend authority, and native/framework boundaries. A distinct iOS path covers signing/entitlements, Keychain, groups/extensions, local authentication, and device-versus-simulator evidence. Detailed references load only when relevant; ordinary work requires no new ledger or quiz.
+[`mobile-app-hunter/SKILL.md`](mobile-app-hunter/SKILL.md) starts from a designated app without requiring a suspected bug. Its Android-first path covers package/install identity, components and delegation, storage/key lifetimes, links/WebViews, network and backend authority, and native/framework boundaries. A distinct iOS path covers signing/entitlements, Keychain, groups/extensions, local authentication, and device-versus-simulator evidence. Detailed references load only when relevant; ordinary work requires no new ledger or quiz.
 
 ```text
-Use $mobile-app-security-assessment to assess this designated mobile app.
+Use $mobile-app-hunter to assess this designated mobile app.
 No suspected vulnerability is supplied. Explain its security responsibilities,
-prioritize material questions, cite applicable build/runtime evidence,
+prioritize material hunting questions, cite applicable build/runtime evidence,
 and preserve unresolved dependencies without inventing impact.
 ```
 
-The [research brief](mobile-app-security-assessment/references/research-brief.md) now applies the completed September 9, 2026 Deep Research report, which attributes discovery to Exa and framework/authoring retrieval to Context7. The [research integration chapter](mobile-app-security-assessment/references/research-integration.md) covers platform applicability, generated release composition, web/native trust, iOS data/capabilities, framework adapters and MASVS coverage. The [source register](mobile-app-security-assessment/references/sources.md) distinguishes 17 report-cited sources, three limited-content Apple API pointers and two historical research leads; inherited citations are not fresh independent retrieval in this implementation. Detailed unsupported claims remain unresolved. The [skill design note](mobile-app-security-assessment/evals/skill-design.md) connects the report's Anthropic guidance to a 201-line core, progressive disclosure and baseline evaluations without claiming certification.
+The [research brief](mobile-app-hunter/references/research-brief.md) applies the completed September 9, 2026 Deep Research report, which attributes discovery to Exa and framework/authoring retrieval to Context7. The [research integration chapter](mobile-app-hunter/references/research-integration.md) covers platform applicability, generated release composition, web/native trust, iOS data/capabilities, framework adapters and MASVS coverage. The [source register](mobile-app-hunter/references/sources.md) distinguishes 17 report-cited sources, three limited-content Apple API pointers and two historical research leads; inherited citations are not fresh independent retrieval in this implementation. Detailed unsupported claims remain unresolved. The [skill design note](mobile-app-hunter/evals/skill-design.md) connects the report's Anthropic guidance to the short core, progressive disclosure and baseline evaluations without claiming certification.
 
 Sixteen worked contrasts and eight fictional multi-artifact projects teach app-specific assessment questions and calibrated conclusions. Learner exports exclude instructor maps. The optional inventory reads bounded ZIP metadata without extracting, installing, or executing app contents; it is not a vulnerability scanner or signature verifier. This is human-directed assessment, not autonomous third-party targeting or exploitation.
 
 ```bash
-python mobile-app-security-assessment/scripts/artifact_inventory.py /path/to/designated.apk
-python mobile-app-security-assessment/scripts/mobile_projects.py validate
-python mobile-app-security-assessment/scripts/validate_research.py
-python mobile-app-security-assessment/scripts/mobile_projects.py export --project M214 --output /tmp/mobile-project
-python -m unittest discover -s mobile-app-security-assessment/scripts -p 'test_*.py'
+python mobile-app-hunter/scripts/artifact_inventory.py /path/to/designated.apk
+python mobile-app-hunter/scripts/mobile_projects.py validate
+python mobile-app-hunter/scripts/validate_research.py
+python mobile-app-hunter/scripts/mobile_projects.py export --project M214 --output /tmp/mobile-project
+python -m unittest discover -s mobile-app-hunter/scripts -p 'test_*.py'
 ```
 
-The package includes 105 offline software tests: the original 66 plus 39 research-metadata regressions. Three new [paper transfer tasks](mobile-app-security-assessment/evals/research-transfer.md) complement the unchanged eight-project corpus; give learners only the task file, not its separate instructor notes. No Android/iOS runtime, external service, or model was evaluated. The [evaluation guide](mobile-app-security-assessment/evals/README.md) requires human review of architecture, question selection, evidence, and uncertainty; tool success never grants report readiness.
+The package includes 105 offline software tests: the original 66 plus 39 research-metadata regressions. Three new [paper transfer tasks](mobile-app-hunter/evals/research-transfer.md) complement the unchanged eight-project corpus; give learners only the task file, not its separate instructor notes. No Android/iOS runtime, external service, or model was evaluated. The [evaluation guide](mobile-app-hunter/evals/README.md) requires human review of architecture, question selection, evidence, and uncertainty; tool success never grants report readiness.
 
 ## Architecture-first assessment companion
 

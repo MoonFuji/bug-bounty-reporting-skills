@@ -2,12 +2,12 @@
 
 ## Decision
 
-The completed mobile research has been incorporated into the existing
-`mobile-app-security-assessment` skill. The report's proposed name
-`mobile-app-hunter` is a design suggestion, not a required rename. Keeping the
-installed name preserves invocation and repository registration compatibility.
-The report's useful contribution is architecture-aware judgment, not a new label
-or a larger mandatory workflow.
+The completed mobile research has been incorporated into `mobile-app-hunter`.
+The report proposed that name, and the branch adopts it before the skill's first
+merge, release, or installation. The earlier `mobile-app-security-assessment`
+name was only an uninstalled working name, so no compatibility alias is needed.
+The report's useful contribution remains architecture-aware judgment rather than
+a larger mandatory workflow.
 
 Research snapshot: 2026-09-09. Integration: 2026-09-10. Source status and primary
 URLs are in [sources](sources.md) and [source-index.json](source-index.json).
